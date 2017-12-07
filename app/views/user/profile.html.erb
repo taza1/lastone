@@ -1,0 +1,24 @@
+<% if current_user != nil then %>
+<% @profile = Profile.where(:user => current_user).first %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @profile.firstname %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @profile.lastname %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @profile.address %>
+</p>
+
+n bikes rented.
+
+<% else %>
+  You are not logged in.
+<% end %>

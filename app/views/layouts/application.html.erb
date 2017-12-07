@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bike Rental Service</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div id="header">
+    
+  </div>
+  <div id="menu">
+    <div id="navbar">
+      <ul>
+        <li><%= link_to "Bikes", bikes_path %></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/contact">Contact Us</a></li>        
+       <% if current_user %>
+        <li><%= link_to "Logout", destroy_user_session_path, method: :delete, :style => 'float:right;' %></li>
+        
+        <li style="color:white;float:right;"><%= link_to current_user.email.to_s, profile_path %>&nbsp;&nbsp;</li>        
+       <% else %>
+        <li><a href="/admin">Login</a></li>
+       <% end %>
+      </ul>
+    </div>
+  </div>
+  <div id="container">
+    <div id="content">
+      <p class="notice"><%= flash[:notice] %></p>
+      <p class="alert"><%= flash[:alert] %></p>
+      <%= yield %>
+      
+      <% if current_user == false %>
+        <%= link_to 'Register', new_user_registration_path %> or <% link_to 'Sign in', new_user_session_path %>
+      <% end %>
+      
+    </div>
+    <div id="first-column">
+        <div class="loginbox">
+          <h2 class="Boxheaders">Login here...</h2>
+        </div>
+        <div class="searchbox">
+          <h2 class="BoxHeaders">Search Catalog</h2>
+        </div>
+    </div>
+  </div>
+  <div id="footer">
+    <h6 class="footertext">&copy; Bike Rental&trade; 2017</h6>
+  </div>
+
+</body>
+</html>
