@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   
   #admin index
   get 'admin/index', to: 'admin#index', as: 'admin'
+  get 'admin/show_bikes/:bike_type', to: 'admin#show_bikes', as: 'admin_show_bikes'
+  get 'admin/show_bike_rentals/:user_type', to: 'admin#show_bike_rentals', as: 'admin_show_bike_rentals'
 
   #user controller
   devise_for :users
@@ -9,11 +11,6 @@ Rails.application.routes.draw do
   get '/login', to: 'user#login', as: 'login'
   get '/logout', to: 'user#logout', as: 'logout'
   get '/profile', to: 'user#profile', as: 'profile'
-
-  #cart controller
-  get '/cart' => 'cart#index' 
-  get '/cart/:id' => 'cart#add'
-  get '/cart/clear' => 'cart#clearCart' 
 
   #site controller
   get '/about' => 'site#about'
@@ -24,15 +21,14 @@ Rails.application.routes.draw do
   get '/signedinuserprofile' => 'profiles#signedinuserprofile'
 
   #bikes controller
-  get 'bikes', to: 'bike#bikes', as: 'bikes'
-
-  resources :items
+  get '/', to: 'bike#bikes', as: 'bikes'
+  get '/rent_a_bike/:bike_id', to: 'bike#rent_a_bike', as: 'rent_a_bike'
+  post '/save_bike_rental', to: 'bike#save_bike_rental', as: 'save_bike_rental' 
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'items#index'
   
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

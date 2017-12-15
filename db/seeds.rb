@@ -7,6 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Bike.all.destroy_all
+User.all.destroy_all
 for @i in (1..10) do
   @bike = Bike.new
   @bike.name = "Bike " + @i.to_s

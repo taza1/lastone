@@ -1,2 +1,30 @@
-<h1>Site#contact</h1>
-<p>Find me in app/views/site/contact.html.erb</p>
+<h1>Contact us</h1>
+<%= form_for :anything, method: 'POST', url: :save_bike_rental do |f|%>
+  <div class="form-group col-sm-4">
+    <label for="subject">Subject</label>
+    <%= f.text_field :subject, :class => 'form-control'%>
+  </div></br>
+  <div class="clear"></div>
+  <div class="form-group col-sm-4">
+    <label for="email">Email</label>
+    <%= f.text_field :email, :class => 'form-control'%>
+  </div></br>
+  <div class="clear"></div>
+  <div class="form-group col-sm-4">
+    <label for="message">Message</label>
+    <%= f.text_area :message, :class => 'form-control'%>
+  </div></br>
+  <div class="clear"></div>
+  <div class="form-group col-sm-4">
+    <button type="submit" class="btn btn-success">Send message</button>
+  </div>
+ <% end %> 
+ 
+ 
+ <iframe src="http://free.timeanddate.com/clock/i60kepve/n78/tlie/fn2/tcccc/tt0/ts1/ta1" frameborder="0" width="333" height="21"></iframe>
+ <div class= weather>
+<a href="https://www.accuweather.com/en/ie/dublin/207931/weather-forecast/207931" class="aw-widget-legal">
+<!--
+By accessing and/or using this code snippet, you agree to AccuWeather’s terms and conditions (in English) which can be found at https://www.accuweather.com/en/free-weather-widgets/terms and AccuWeather’s Privacy Statement (in English) which can be found at https://www.accuweather.com/en/privacy.
+-->
+</a><div id="awcc1512749032557" class="aw-widget-current"  data-locationkey="207931" data-unit="c" data-language="en-us" data-useip="false" data-uid="awcc1512749032557"></div><script type="text/javascript" src="https://oap.accuweather.com/launch.js"></script></div>

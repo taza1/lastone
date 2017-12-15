@@ -1,12 +1,16 @@
 <p id="notice"><%= notice %></p>
 
+<% if current_user != nil then %>
+<% @profile = Profile.where(:user => current_user).first %>
+<p id="notice"><%= notice %></p>
+
 <p>
-  <strong>Firstname:</strong>
+  <strong>First name:</strong>
   <%= @profile.firstname %>
 </p>
 
 <p>
-  <strong>Lastname:</strong>
+  <strong>Last name:</strong>
   <%= @profile.lastname %>
 </p>
 
@@ -15,10 +19,8 @@
   <%= @profile.address %>
 </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @profile.user %>
-</p>
+n bikes rented.
 
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
-<%= link_to 'Back', profiles_path %>
+<% else %>
+  You are not logged in.
+<% end %>

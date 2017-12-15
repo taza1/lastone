@@ -1,2 +1,28 @@
-<h1>Admin#index</h1>
-<p>Find me in app/views/admin/index.html.erb</p>
+<h1>Admin</h1>
+<div class="clear"></div>
+<%= link_to @all_bikes_count.to_s + " bikes", admin_show_bikes_path("all"), :class => 'btn btn-sm btn-primary', :style => 'color:white;'%> 
+<div class="clear"></div></br>
+<%= link_to @count_bikes_rented.to_s + " bikes rented", admin_show_bikes_path("rented"), :class => 'btn btn-sm btn-primary', :style => 'color:white;'%> 
+<div class="clear"></div></br>
+<%= link_to @count_bike_rental_requests.to_s + " bike rentals", admin_show_bike_rentals_path("all"), :class => 'btn btn-sm btn-primary', :style => 'color:white;' %>
+<div class="clear"></div></br>
+<select id="users">
+ <% for @user in @users do%>
+   <option id="all">All users</option>
+   <option id="<%=@user.id%>"><%=@user.email%></option>
+ <% end %>
+</select>
+<div id="show_bike_rentals" class="btn btn-sm btn-success">Show bike rentals</div>
+<script>
+  $("#users").change(function(){
+    var id = $(this).children(":selected").attr("id");
+    
+
+  });
+
+  $("#show_bike_rentals").click(function(){
+    var user_id = $("#users").children(":selected").attr("id");
+    window.location = "/admin/show_bike_rentals/" + String(user_id);
+  });
+
+</script>

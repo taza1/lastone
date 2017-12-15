@@ -10,23 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171207114702) do
+ActiveRecord::Schema.define(version: 20171208035105) do
+
+  create_table "bikerentals", force: :cascade do |t|
+    t.integer "bike_id"
+    t.integer "days"
+    t.datetime "start_date"
+    t.datetime "end_date"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+  end
 
   create_table "bikes", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.string "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "items", force: :cascade do |t|
-    t.string "title"
-    t.text "description"
-    t.decimal "price"
-    t.string "image_url"
-    t.string "category"
-    t.string "brand"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

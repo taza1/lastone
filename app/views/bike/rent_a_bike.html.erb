@@ -1,0 +1,21 @@
+<div class="clear"></div>
+<h2>Rent <%=@bike.name%></h2>
+ <%@no_image = @bike.id % 5 + 1%>
+ <div><img src="/assets/Site/bike<%=@no_image%>.jpg" width="100" height="100"></div>
+<div class="container col-sm-4">
+ <%= form_for :anything, method: 'POST', url: :save_bike_rental do |f|%>
+  <%= f.hidden_field :bike_id, :value => @bike.id%>
+  <div class="form-group">
+    <label for="days">Days to rent</label>
+    <%= f.text_field :days, :class => 'form-control'%>
+  </div>
+  <button type="submit" class="btn btn-success">Rent it!</button>
+ <% end %> 
+</div>
+
+  <script>
+  $( function() {
+    $("#start_date").datepicker({ dateFormat: 'yy-mm-dd'});
+    $("#end_date").datepicker({ dateFormat: 'yy-mm-dd'});
+  } );
+  </script>

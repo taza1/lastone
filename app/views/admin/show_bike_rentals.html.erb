@@ -1,0 +1,24 @@
+<h2>Bike rentals</h2>
+       
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Bike</th>
+	<th>User</th>
+        <th>Days</th>
+        <th>Start date</th>  
+        <th>End date</th> 
+      </tr>
+    </thead>
+    <tbody>
+    <% for @bike_rental in @bike_rentals do%>
+      <tr>
+        <td><%#=Bike.find_by_id(@bike_rental.bike_id.name)%></td>
+        <td><%=User.find_by_id(@bike_rental.user_id).email%></td>
+        <td><%=@bike_rental.days%></td>
+        <td><%= @bike_rental.start_date.strftime("%d %b %Y")%></td>
+        <td><%= @bike_rental.end_date.strftime("%d %b %Y")%></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
